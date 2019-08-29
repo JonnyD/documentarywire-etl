@@ -581,6 +581,36 @@
       <to>Insert / update New Category</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Select Video Sources from Old Documentary</from>
+      <to>Set embed allowed</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set embed allowed</from>
+      <to>Set embed code</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert / update New Video Source</from>
+      <to>Set embed code</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Set embed code</from>
+      <to>Set status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set status</from>
+      <to>Filter not null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter not null</from>
+      <to>Insert / update New Video Source</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Old User</name>
@@ -1039,7 +1069,7 @@ FROM category
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
+      <xloc>320</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1097,8 +1127,273 @@ FROM category
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
+      <xloc>320</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Video Sources from Old Documentary</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT DISTINCT video_source
+FROM documentary
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update New Video Source</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>video_source</table>
+      <key>
+        <name>video_source</name>
+        <field>name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>name</name>
+        <rename>video_source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>embed_allowed</name>
+        <rename>embed_allowed</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>embed_code</name>
+        <rename>embed_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>status</name>
+        <rename>status</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set embed allowed</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+embed_allowed = "no";</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>embed_allowed</name>
+        <rename>embed_allowed</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set embed code</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+embed_code = null;</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>embed_code</name>
+        <rename>embed_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set status</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+status = "disabled";</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>status</name>
+        <rename>status</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter not null</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>video_source</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
