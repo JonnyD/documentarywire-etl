@@ -592,24 +592,74 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Insert / update New Video Source</from>
-      <to>Set embed code</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Set embed code</from>
       <to>Set status</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set status</from>
-      <to>Filter not null</to>
+      <from>Old Documentary</from>
+      <to>Block this step until video source finish</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter not null</from>
+      <from>Block this step until category finish</from>
+      <to>Lookup old Category slug</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup old Category slug</from>
+      <to>Lookup new Category id by old Category slug</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup new Category id by old Category slug</from>
+      <to>Update featured</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Update featured</from>
+      <to>Insert / update New Documentary</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set status</from>
+      <to>Set null to uncategorised</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set null to uncategorised</from>
       <to>Insert / update New Video Source</to>
       <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until video source finish</from>
+      <to>Set null video source to uncategorised</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set null video source to uncategorised</from>
+      <to>Lookup Video Source Id</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup Video Source Id</from>
+      <to>Block this step until category finish</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Old Comment</from>
+      <to>Insert / update New Comment</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Old Likes</from>
+      <to>Insert / update New Watchlist</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Old Acitivity</from>
+      <to>Insert / update Activity</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -986,7 +1036,7 @@ if (activated == null) {
     </remotesteps>
     <GUI>
       <xloc>304</xloc>
-      <yloc>432</yloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1032,7 +1082,7 @@ discr = "facebook";</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>304</xloc>
-      <yloc>352</yloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1069,7 +1119,7 @@ FROM category
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>304</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1127,7 +1177,7 @@ FROM category
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>304</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1220,7 +1270,7 @@ FROM documentary
     </remotesteps>
     <GUI>
       <xloc>592</xloc>
-      <yloc>432</yloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1363,8 +1413,8 @@ status = "disabled";</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Filter not null</name>
-    <type>FilterRows</type>
+    <name>Insert / update New Documentary</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1373,16 +1423,474 @@ status = "disabled";</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to/>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>video_source</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>documentary</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>title</name>
+        <rename>title</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>slug</name>
+        <rename>slug</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>storyline</name>
+        <rename>description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>summary</name>
+        <rename>excerpt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>year</name>
+        <rename>year</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>length</name>
+        <rename>length</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>status</name>
+        <rename>status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>views</name>
+        <rename>views</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>short_url</name>
+        <rename>short_url</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>video_id</name>
+        <rename>video_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>featured</name>
+        <rename>featured</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>poster_file_name</name>
+        <rename>thumbnail</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>wide_image</name>
+        <rename>featured_image</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>updated_at</name>
+        <rename>updated</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>video_source_id</name>
+        <rename>video_source_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>category_id</name>
+        <rename>new_category_id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until video source finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New Video Source</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Old Documentary</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, category_id
+, title
+, description
+, slug
+, created
+, updated
+, excerpt
+, status
+, views
+, video_source
+, video_id
+, thumbnail
+, oldThumbnail
+, length
+, likeCount
+, comment_count
+, featured
+, featured_image
+, featured_order
+, year
+, short_url
+, seo_title
+, seo_description
+, added_by
+FROM documentary
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Video Source Id</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>video_source</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>video_source</name>
+        <field>name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>video_source_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until category finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New Category</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup old Category slug</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>category</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>category_id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>slug</name>
+        <rename>category_slug</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup new Category id by old Category slug</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>category</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>category_slug</name>
+        <field>slug</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>new_category_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update featured</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (featured === "Y") {
+	featured = 1;
+} else if (featured === "N") {
+	featured = 0;
+} else {
+	featured = 0;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>featured</name>
+        <rename>featured</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set null to uncategorised</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (video_source === null) {
+	video_source = "uncategorised";
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>video_source</name>
+        <rename>video_source</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1394,6 +1902,400 @@ status = "disabled";</jsScript_script>
     <GUI>
       <xloc>592</xloc>
       <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set null video source to uncategorised</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (video_source == null) {
+	video_source = "uncategorised";
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>video_source</name>
+        <rename>video_source</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Old Comment</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, user_id
+, documentary_id
+, created
+, comment
+, status
+, parent_id
+, author
+, email
+, disqusParentId
+, disqusId
+, old_comment_id
+, points
+FROM comment
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update New Comment</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>comment</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>status</name>
+        <rename>status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>author</name>
+        <rename>author</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>email</name>
+        <rename>email</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comment_text</name>
+        <rename>comment</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>updated_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>user_id</name>
+        <rename>user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>documentary_id</name>
+        <rename>documentary_id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Old Likes</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, user_id
+, documentary_id
+, created
+FROM likes
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update New Watchlist</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>watchlist</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>user_id</name>
+        <rename>user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>documentary_id</name>
+        <rename>documentary_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Old Acitivity</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, user_id
+, type
+, component
+, object_id
+, data
+, group_number
+, created
+FROM activity
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update Activity</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>activity</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>user_id</name>
+        <rename>user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>type</name>
+        <rename>type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>component</name>
+        <rename>component</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>object_id</name>
+        <rename>object_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>data</name>
+        <rename>data</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>group_number</name>
+        <rename>group_number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
