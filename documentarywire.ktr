@@ -557,11 +557,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set enabled</from>
-      <to>Insert / update New User</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Insert / update New User</from>
       <to>Filter rows with Facebook account</to>
       <enabled>Y</enabled>
@@ -648,204 +643,180 @@
     </hop>
     <hop>
       <from>Old Comment</from>
+      <to>Block this step until documentary finish</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until documentary finish</from>
+      <to>Block this step until user finsih</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until user finsih</from>
       <to>Insert / update New Comment</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Old Likes</from>
+      <to>Block this step until documentary finish for watchlist</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until documentary finish for watchlist</from>
+      <to>Lookup documentary</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup documentary</from>
+      <to>Filter null documentaries</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter null documentaries</from>
       <to>Insert / update New Watchlist</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Old Acitivity</from>
+      <to>Block this step until user finish for activity</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until user finish for activity</from>
+      <to>Lookup user</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup user</from>
+      <to>Filter null users</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter null users</from>
       <to>Insert / update Activity</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set enabled</from>
+      <to>Set username not null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set username not null</from>
+      <to>Insert / update New User</to>
       <enabled>N</enabled>
     </hop>
+    <hop>
+      <from>Old User</from>
+      <to>Select email from old user</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email from old user</from>
+      <to>Merge rows (diff)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Old Comment</from>
+      <to>Select email from old comment</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email from old comment</from>
+      <to>Merge rows (diff)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
+      <to>Emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email from feedburner dw</from>
+      <to>Merge DW emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Feedburner DW</from>
+      <to>Sort feedburner dw emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort feedburner dw emails</from>
+      <to>Select email from feedburner dw</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge rows (diff)</from>
+      <to>Select email</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email</from>
+      <to>Merge DW emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter null emails</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort feedburner TNS emails</from>
+      <to>Select email from feedburner TNS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Feedburner TNS</from>
+      <to>Sort feedburner TNS emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email from feedburner TNS</from>
+      <to>Merge TNS emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge DW emails</from>
+      <to>Select email 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email 2</from>
+      <to>Merge TNS emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge WZ emails</from>
+      <to>Filter null emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Feedburner WZ</from>
+      <to>Sort feedburner wz emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort feedburner wz emails</from>
+      <to>Select email from feedburner wz</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email from feedburner wz</from>
+      <to>Merge WZ emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge TNS emails</from>
+      <to>Select email 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select email 2 2</from>
+      <to>Merge WZ emails</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>Old User</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>docuwire2</connection>
-    <sql>SELECT
-  id
-, username
-, username_canonical
-, password
-, reset_key
-, reset_request_time
-, last_reset_time
-, email
-, email_canonical
-, registered
-, lastActive
-, displayName
-, avatar
-, status
-, facebook_id
-, facebook_access_token
-, facebook_avatar_full
-, facebook_avatar_thumb
-, facebookAvatar2
-, salt
-, activated
-, activation_key
-FROM user
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>96</xloc>
-      <yloc>48</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update New User</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>documentarywire</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>user</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>username</name>
-        <rename>username</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>username_canonical</name>
-        <rename>username_canonical</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>email</name>
-        <rename>email</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>email_canonical</name>
-        <rename>email_canonical</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>enabled</name>
-        <rename>activated</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>salt</name>
-        <rename>salt</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>password</name>
-        <rename>password</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>last_login</name>
-        <rename>lastActive</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>confirmation_token</name>
-        <rename>activation_key</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>password_requested_at</name>
-        <rename>reset_request_time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>avatar</name>
-        <rename>avatar</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>reset_key</name>
-        <rename>reset_key</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>activated_at</name>
-        <rename>registered</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>created_at</name>
-        <rename>registered</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>updated_at</name>
-        <rename>registered</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>roles</name>
-        <rename>roles</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>name</name>
-        <rename>displayName</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>96</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Add roles</name>
     <type>ScriptValueMod</type>
@@ -887,14 +858,169 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>128</yloc>
+      <xloc>1280</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Set enabled</name>
-    <type>ScriptValueMod</type>
+    <name>Block this step until category finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New Category</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2064</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until documentary finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New Documentary</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until documentary finish for watchlist</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New Documentary</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until user finish for activity</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New User</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1952</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until user finsih</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New User</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>896</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until video source finish</name>
+    <type>BlockUntilStepsFinish</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -903,29 +1029,79 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-if (activated == null) {
-	activated = 0;
-} else {
-	activated = 1;
-}</jsScript_script>
-      </jsScript>
-    </jsScripts>
+    <steps>
+      <step>
+        <name>Insert / update New Video Source</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2064</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Emails</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>windows-1252</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>C:/Users/Jonny/Desktop/Workspace/etl</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>,</splitevery>
+    </file>
     <fields>
       <field>
-        <name>activated</name>
-        <rename>activated</rename>
-        <type>Integer</type>
+        <name>email</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
-        <replace>Y</replace>
       </field>
     </fields>
     <attributes/>
@@ -937,8 +1113,261 @@ if (activated == null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
+      <xloc>48</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Feedburner DW</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>C:\Users\Jonny\Desktop\Workspace\DocumentaryWireemailsubscribers.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure/>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding/>
+    <fields>
+      <field>
+        <name>Email</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Subscribed</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Status</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
       <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Feedburner TNS</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>C:\Users\Jonny\Desktop\Workspace\tnsradioemailsubscribers.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure/>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding/>
+    <fields>
+      <field>
+        <name>Email</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Subscribed</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Status</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter null documentaries</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>existing_documentary_id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue>documentary_id</rightvalue>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>976</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter null emails</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>email</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter null users</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>existing_user_id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1952</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -972,13 +1401,13 @@ if (activated == null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>288</yloc>
+      <xloc>1488</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Insert / update New Social Account (Facebook)</name>
+    <name>Insert / update Activity</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -993,36 +1422,51 @@ if (activated == null) {
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>social_account</table>
+      <table>activity</table>
       <key>
-        <name>facebook_id</name>
-        <field>account_id</field>
+        <name>id</name>
+        <field>id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>account_id</name>
-        <rename>facebook_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>access_token</name>
-        <rename>facebook_access_token</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>thumbnail</name>
-        <rename>facebook_avatar_thumb</rename>
-        <update>Y</update>
+        <name>id</name>
+        <rename>id</rename>
+        <update>N</update>
       </value>
       <value>
         <name>user_id</name>
-        <rename>id</rename>
+        <rename>user_id</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>discr</name>
-        <rename>discr</rename>
+        <name>type</name>
+        <rename>type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>component</name>
+        <rename>component</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>object_id</name>
+        <rename>object_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>data</name>
+        <rename>data</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>group_number</name>
+        <rename>group_number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1035,92 +1479,8 @@ if (activated == null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set social account discr</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-discr = "facebook";</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>discr</name>
-        <rename>discr</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>304</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Old Cateogry</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>docuwire2</connection>
-    <sql>SELECT
-  id
-, name
-, slug
-, count
-FROM category
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>304</xloc>
-      <yloc>48</yloc>
+      <xloc>1952</xloc>
+      <yloc>1056</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1177,47 +1537,13 @@ FROM category
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>128</yloc>
+      <xloc>1488</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select Video Sources from Old Documentary</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>docuwire2</connection>
-    <sql>SELECT DISTINCT video_source
-FROM documentary
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>48</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update New Video Source</name>
+    <name>Insert / update New Comment</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1232,31 +1558,56 @@ FROM documentary
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>video_source</table>
+      <table>comment</table>
       <key>
-        <name>video_source</name>
-        <field>name</field>
+        <name>id</name>
+        <field>id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>name</name>
-        <rename>video_source</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>embed_allowed</name>
-        <rename>embed_allowed</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>embed_code</name>
-        <rename>embed_code</rename>
+        <name>id</name>
+        <rename>id</rename>
         <update>Y</update>
       </value>
       <value>
         <name>status</name>
         <rename>status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>author</name>
+        <rename>author</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>email</name>
+        <rename>email</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comment_text</name>
+        <rename>comment</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>updated_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>user_id</name>
+        <rename>user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>documentary_id</name>
+        <rename>documentary_id</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1269,146 +1620,8 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set embed allowed</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-embed_allowed = "no";</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>embed_allowed</name>
-        <rename>embed_allowed</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set embed code</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-embed_code = null;</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>embed_code</name>
-        <rename>embed_code</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set status</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-status = "disabled";</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>status</name>
-        <rename>status</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>288</yloc>
+      <xloc>1296</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1535,14 +1748,14 @@ status = "disabled";</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>208</yloc>
+      <xloc>2336</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Block this step until video source finish</name>
-    <type>BlockUntilStepsFinish</type>
+    <name>Insert / update New Social Account (Facebook)</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1551,12 +1764,564 @@ status = "disabled";</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <steps>
-      <step>
-        <name>Insert / update New Video Source</name>
-        <CopyNr>0</CopyNr>
-      </step>
-    </steps>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>social_account</table>
+      <key>
+        <name>facebook_id</name>
+        <field>account_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>account_id</name>
+        <rename>facebook_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>access_token</name>
+        <rename>facebook_access_token</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>thumbnail</name>
+        <rename>facebook_avatar_thumb</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>user_id</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>discr</name>
+        <rename>discr</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update New User</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>user</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>username</name>
+        <rename>username</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>username_canonical</name>
+        <rename>username_canonical</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>email</name>
+        <rename>email</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>email_canonical</name>
+        <rename>email_canonical</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>enabled</name>
+        <rename>activated</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>salt</name>
+        <rename>salt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>password</name>
+        <rename>password</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>last_login</name>
+        <rename>lastActive</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>confirmation_token</name>
+        <rename>activation_key</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>password_requested_at</name>
+        <rename>reset_request_time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>avatar</name>
+        <rename>avatar</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>reset_key</name>
+        <rename>reset_key</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>activated_at</name>
+        <rename>registered</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>registered</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>updated_at</name>
+        <rename>registered</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>roles</name>
+        <rename>roles</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>name</name>
+        <rename>displayName</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update New Video Source</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>video_source</table>
+      <key>
+        <name>video_source</name>
+        <field>name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>name</name>
+        <rename>video_source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>embed_allowed</name>
+        <rename>embed_allowed</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>embed_code</name>
+        <rename>embed_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>status</name>
+        <rename>status</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update New Watchlist</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>watchlist</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>user_id</name>
+        <rename>user_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>documentary_id</name>
+        <rename>documentary_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>1056</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Video Source Id</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>video_source</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>video_source</name>
+        <field>name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>video_source_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2064</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup documentary</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>documentary</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>documentary_id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>existing_documentary_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1616</xloc>
+      <yloc>896</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup new Category id by old Category slug</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>category</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>category_slug</name>
+        <field>slug</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>new_category_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2336</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup old Category slug</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>category</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>category_id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>slug</name>
+        <rename>category_slug</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2064</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup user</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>user</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>user_id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>existing_user_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1952</xloc>
+      <yloc>896</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge DW emails</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <keys>
+      <key>email</key>
+    </keys>
+    <values>
+      <value>email</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>Select email from feedburner dw</reference>
+    <compare>Select email</compare>
+    <compare>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1567,7 +2332,206 @@ status = "disabled";</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>880</xloc>
-      <yloc>128</yloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge TNS emails</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <keys>
+      <key>email</key>
+    </keys>
+    <values>
+      <value>email</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>Select email from feedburner TNS</reference>
+    <compare>Select email 2</compare>
+    <compare>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge rows (diff)</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <keys>
+      <key>email</key>
+    </keys>
+    <values>
+      <value>email</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>Select email from old user</reference>
+    <compare>Select email from old comment</compare>
+    <compare>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Old Acitivity</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, user_id
+, type
+, component
+, object_id
+, data
+, group_number
+, created
+FROM activity
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1952</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Old Cateogry</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, name
+, slug
+, count
+FROM category
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Old Comment</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, user_id
+, documentary_id
+, created
+, comment
+, status
+, parent_id
+, author
+, email
+, disqusParentId
+, disqusId
+, old_comment_id
+, points
+FROM comment
+ORDER BY email</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1625,14 +2589,14 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>48</yloc>
+      <xloc>2064</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Lookup Video Source Id</name>
-    <type>DBLookup</type>
+    <name>Old Likes</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1641,29 +2605,19 @@ FROM documentary
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>documentarywire</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>video_source</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>video_source</name>
-        <field>name</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>video_source_id</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, user_id
+, documentary_id
+, created
+FROM likes
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1673,14 +2627,14 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>288</yloc>
+      <xloc>1616</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Block this step until category finish</name>
-    <type>BlockUntilStepsFinish</type>
+    <name>Old User</name>
+    <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
@@ -1689,12 +2643,166 @@ FROM documentary
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <steps>
-      <step>
-        <name>Insert / update New Category</name>
-        <CopyNr>0</CopyNr>
-      </step>
-    </steps>
+    <connection>docuwire2</connection>
+    <sql>SELECT
+  id
+, username
+, username_canonical
+, password
+, reset_key
+, reset_request_time
+, last_reset_time
+, email
+, email_canonical
+, registered
+, lastActive
+, displayName
+, avatar
+, status
+, facebook_id
+, facebook_access_token
+, facebook_avatar_full
+, facebook_avatar_thumb
+, facebookAvatar2
+, salt
+, activated
+, activation_key
+FROM user
+ORDER BY email</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Video Sources from Old Documentary</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>docuwire2</connection>
+    <sql>SELECT DISTINCT video_source
+FROM documentary
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select email</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>email</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select email from feedburner TNS</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Email</name>
+        <rename>email</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select email from feedburner dw</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Email</name>
+        <rename>email</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1710,8 +2818,8 @@ FROM documentary
     </GUI>
   </step>
   <step>
-    <name>Lookup old Category slug</name>
-    <type>DBLookup</type>
+    <name>Select email from old comment</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1720,29 +2828,515 @@ FROM documentary
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>docuwire2</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>category</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>category_id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>slug</name>
-        <rename>category_slug</rename>
-        <default/>
+    <fields>
+      <field>
+        <name>email</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>640</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select email from old user</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>email</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set embed allowed</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+embed_allowed = "no";</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>embed_allowed</name>
+        <rename>embed_allowed</rename>
         <type>String</type>
-      </value>
-    </lookup>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set embed code</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+embed_code = null;</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>embed_code</name>
+        <rename>embed_code</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set enabled</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (activated == null) {
+	activated = 0;
+} else {
+	activated = 1;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>activated</name>
+        <rename>activated</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set null to uncategorised</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (video_source === null) {
+	video_source = "uncategorised";
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>video_source</name>
+        <rename>video_source</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set null video source to uncategorised</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (video_source == null) {
+	video_source = "uncategorised";
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>video_source</name>
+        <rename>video_source</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2064</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set social account discr</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+discr = "facebook";</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>discr</name>
+        <rename>discr</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set status</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+status = "disabled";</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>status</name>
+        <rename>status</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1776</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set username not null</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (username == null || username == "") {
+	var newUsername = email.split("@")[0];
+	username = newUsername;
+	username_canonical = newUsername;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>username</name>
+        <rename>username</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>username_canonical</name>
+        <rename>username_canonical</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort feedburner TNS emails</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Email</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort feedburner dw emails</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Email</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1753,13 +3347,13 @@ FROM documentary
     </remotesteps>
     <GUI>
       <xloc>880</xloc>
-      <yloc>448</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Lookup new Category id by old Category slug</name>
-    <type>DBLookup</type>
+    <name>Unique rows</name>
+    <type>Unique</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1768,29 +3362,16 @@ FROM documentary
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>documentarywire</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>category</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>category_slug</name>
-        <field>slug</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>new_category_id</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>email</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1800,8 +3381,8 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>48</yloc>
+      <xloc>128</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1852,14 +3433,14 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>128</yloc>
+      <xloc>2336</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Set null to uncategorised</name>
-    <type>ScriptValueMod</type>
+    <name>Select email 2</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1868,27 +3449,120 @@ if (featured === "Y") {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-if (video_source === null) {
-	video_source = "uncategorised";
-}</jsScript_script>
-      </jsScript>
-    </jsScripts>
     <fields>
       <field>
-        <name>video_source</name>
-        <rename>video_source</rename>
+        <name>email</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge WZ emails</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <keys>
+      <key>email</key>
+    </keys>
+    <values>
+      <value>email</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>Select email from feedburner wz</reference>
+    <compare>Select email 2 2</compare>
+    <compare>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Feedburner WZ</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>C:\Users\Jonny\Desktop\Workspace\ZeitgeistMovieemailsubscribers.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure/>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding/>
+    <fields>
+      <field>
+        <name>Email</name>
         <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <replace>Y</replace>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Subscribed</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Status</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
       </field>
     </fields>
     <attributes/>
@@ -1900,62 +3574,14 @@ if (video_source === null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set null video source to uncategorised</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-if (video_source == null) {
-	video_source = "uncategorised";
-}</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>video_source</name>
-        <rename>video_source</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
+      <xloc>368</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Old Comment</name>
-    <type>TableInput</type>
+    <name>Sort feedburner wz emails</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1964,28 +3590,23 @@ if (video_source == null) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>docuwire2</connection>
-    <sql>SELECT
-  id
-, user_id
-, documentary_id
-, created
-, comment
-, status
-, parent_id
-, author
-, email
-, disqusParentId
-, disqusId
-, old_comment_id
-, points
-FROM comment
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Email</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1995,14 +3616,14 @@ FROM comment
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>544</yloc>
+      <xloc>368</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Insert / update New Comment</name>
-    <type>InsertUpdate</type>
+    <name>Select email from feedburner wz</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2011,64 +3632,13 @@ FROM comment
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>documentarywire</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>comment</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>status</name>
-        <rename>status</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>author</name>
-        <rename>author</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>email</name>
+    <fields>
+      <field>
+        <name>Email</name>
         <rename>email</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>comment_text</name>
-        <rename>comment</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>created_at</name>
-        <rename>created</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>updated_at</name>
-        <rename>created</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>user_id</name>
-        <rename>user_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>documentary_id</name>
-        <rename>documentary_id</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2078,14 +3648,14 @@ FROM comment
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>624</yloc>
+      <xloc>368</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Old Likes</name>
-    <type>TableInput</type>
+    <name>Select email 2 2</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2094,19 +3664,12 @@ FROM comment
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>docuwire2</connection>
-    <sql>SELECT
-  id
-, user_id
-, documentary_id
-, created
-FROM likes
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <fields>
+      <field>
+        <name>email</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2116,186 +3679,8 @@ FROM likes
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>544</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update New Watchlist</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>documentarywire</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>watchlist</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>user_id</name>
-        <rename>user_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>documentary_id</name>
-        <rename>documentary_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>created_at</name>
-        <rename>created</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>352</xloc>
-      <yloc>624</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Old Acitivity</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>docuwire2</connection>
-    <sql>SELECT
-  id
-, user_id
-, type
-, component
-, object_id
-, data
-, group_number
-, created
-FROM activity
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>544</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update Activity</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>documentarywire</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>activity</table>
-      <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>user_id</name>
-        <rename>user_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>type</name>
-        <rename>type</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>component</name>
-        <rename>component</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>object_id</name>
-        <rename>object_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>data</name>
-        <rename>data</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>group_number</name>
-        <rename>group_number</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>created_at</name>
-        <rename>created</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>624</yloc>
+      <xloc>496</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
