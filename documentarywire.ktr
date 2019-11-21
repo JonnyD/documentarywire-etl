@@ -567,11 +567,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set social account discr</from>
-      <to>Insert / update New Social Account (Facebook)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Old Cateogry</from>
       <to>Insert / update New Category</to>
       <enabled>Y</enabled>
@@ -826,6 +821,16 @@
       <to>Insert / update New Watchlist</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Set social account discr</from>
+      <to>Block this step until user finish 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until user finish 2</from>
+      <to>Insert / update New Social Account (Facebook)</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add roles</name>
@@ -868,7 +873,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1040</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -899,7 +904,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2064</xloc>
+      <xloc>1824</xloc>
       <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
@@ -930,7 +935,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1296</xloc>
+      <xloc>1056</xloc>
       <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
@@ -961,7 +966,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
+      <xloc>1376</xloc>
       <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
@@ -992,7 +997,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1952</xloc>
+      <xloc>1712</xloc>
       <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1023,7 +1028,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1296</xloc>
+      <xloc>1056</xloc>
       <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1054,7 +1059,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2064</xloc>
+      <xloc>1824</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1123,8 +1128,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>464</yloc>
+      <xloc>128</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1197,7 +1202,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>640</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1271,7 +1276,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>384</xloc>
       <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1345,7 +1350,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>128</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1380,7 +1385,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
+      <xloc>1376</xloc>
       <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1415,8 +1420,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>464</yloc>
+      <xloc>128</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1450,7 +1455,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1952</xloc>
+      <xloc>1712</xloc>
       <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1485,7 +1490,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
+      <xloc>1248</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1563,7 +1568,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1952</xloc>
+      <xloc>1712</xloc>
       <yloc>1056</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1621,7 +1626,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
+      <xloc>1248</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1704,7 +1709,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1296</xloc>
+      <xloc>1056</xloc>
       <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1822,7 +1827,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2336</xloc>
+      <xloc>2096</xloc>
       <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1885,8 +1890,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
-      <yloc>624</yloc>
+      <xloc>1248</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2013,7 +2018,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1040</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2071,7 +2076,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
+      <xloc>1536</xloc>
       <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2129,7 +2134,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
+      <xloc>1376</xloc>
       <yloc>1152</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2177,7 +2182,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2064</xloc>
+      <xloc>1824</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2225,7 +2230,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
+      <xloc>1376</xloc>
       <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2273,7 +2278,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2336</xloc>
+      <xloc>2096</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2321,7 +2326,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2064</xloc>
+      <xloc>1824</xloc>
       <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2369,7 +2374,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1952</xloc>
+      <xloc>1712</xloc>
       <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2405,7 +2410,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>640</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2441,7 +2446,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>384</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2477,7 +2482,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>128</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2513,7 +2518,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
+      <xloc>880</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2555,7 +2560,7 @@ FROM activity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1952</xloc>
+      <xloc>1712</xloc>
       <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2593,7 +2598,7 @@ FROM category
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
+      <xloc>1248</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2640,7 +2645,7 @@ ORDER BY email</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1296</xloc>
+      <xloc>1056</xloc>
       <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2699,7 +2704,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2064</xloc>
+      <xloc>1824</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2737,7 +2742,7 @@ FROM likes
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
+      <xloc>1376</xloc>
       <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2793,7 +2798,7 @@ ORDER BY email</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1040</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2827,7 +2832,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
+      <xloc>1536</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2858,7 +2863,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
+      <xloc>768</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2889,7 +2894,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
+      <xloc>512</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2920,7 +2925,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
+      <xloc>256</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2952,7 +2957,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>384</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2984,7 +2989,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>640</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3016,7 +3021,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>128</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3047,7 +3052,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
+      <xloc>880</xloc>
       <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3078,7 +3083,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
+      <xloc>880</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3124,7 +3129,7 @@ embed_allowed = "no";</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
+      <xloc>1536</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3170,7 +3175,7 @@ embed_code = null;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
+      <xloc>1536</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3220,7 +3225,7 @@ if (activated == null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1040</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3268,7 +3273,7 @@ if (video_source === null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
+      <xloc>1536</xloc>
       <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3316,7 +3321,7 @@ if (video_source == null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2064</xloc>
+      <xloc>1824</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3362,7 +3367,7 @@ discr = "facebook";</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
+      <xloc>1248</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3408,7 +3413,7 @@ status = "disabled";</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
+      <xloc>1536</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3466,7 +3471,7 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1040</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3508,7 +3513,7 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>384</xloc>
       <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3550,7 +3555,7 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>640</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3592,7 +3597,7 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>128</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3628,7 +3633,7 @@ if (username == null || username == "") {
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>464</yloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3679,7 +3684,7 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2336</xloc>
+      <xloc>2096</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3732,7 +3737,7 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2336</xloc>
+      <xloc>2096</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3763,8 +3768,39 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
+      <xloc>1376</xloc>
       <yloc>1072</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until user finish 2</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New User</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
