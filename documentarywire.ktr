@@ -797,11 +797,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Update featured</from>
-      <to>Insert / update New Documentary</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Insert / update New Documentary</from>
       <to>Insert / update Standalone</to>
       <enabled>Y</enabled>
@@ -829,6 +824,16 @@
     <hop>
       <from>Block this step until user finish 2</from>
       <to>Insert / update New Social Account (Facebook)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Update featured</from>
+      <to>Set documentary type</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set documentary type</from>
+      <to>Insert / update New Documentary</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -935,8 +940,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>816</yloc>
+      <xloc>976</xloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -966,7 +971,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1440</xloc>
       <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
@@ -997,7 +1002,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
+      <xloc>1776</xloc>
       <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1028,8 +1033,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>896</yloc>
+      <xloc>976</xloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1385,7 +1390,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1440</xloc>
       <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1455,7 +1460,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
+      <xloc>1776</xloc>
       <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1568,7 +1573,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
+      <xloc>1776</xloc>
       <yloc>1056</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1709,8 +1714,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>976</yloc>
+      <xloc>976</xloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1817,6 +1822,11 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
         <rename>new_category_id</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>type</name>
+        <rename>type</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1828,7 +1838,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>2096</xloc>
-      <yloc>336</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2134,7 +2144,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1440</xloc>
       <yloc>1152</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2230,7 +2240,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1440</xloc>
       <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2374,7 +2384,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
+      <xloc>1776</xloc>
       <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2560,7 +2570,7 @@ FROM activity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
+      <xloc>1776</xloc>
       <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2645,8 +2655,8 @@ ORDER BY email</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>736</yloc>
+      <xloc>976</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2742,7 +2752,7 @@ FROM likes
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1440</xloc>
       <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3053,7 +3063,7 @@ FROM documentary
     </remotesteps>
     <GUI>
       <xloc>880</xloc>
-      <yloc>640</yloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3738,7 +3748,7 @@ if (featured === "Y") {
     </remotesteps>
     <GUI>
       <xloc>2096</xloc>
-      <yloc>432</yloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3768,7 +3778,7 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1376</xloc>
+      <xloc>1440</xloc>
       <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3801,6 +3811,52 @@ if (featured === "Y") {
     <GUI>
       <xloc>1248</xloc>
       <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set documentary type</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+type = "standalone";</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>type</name>
+        <rename>type</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2096</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
