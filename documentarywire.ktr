@@ -612,11 +612,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Update featured</from>
-      <to>Insert / update New Documentary</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Set status</from>
       <to>Set null to uncategorised</to>
       <enabled>Y</enabled>
@@ -662,18 +657,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Block this step until documentary finish for watchlist</from>
-      <to>Lookup documentary</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Lookup documentary</from>
       <to>Filter null documentaries</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter null documentaries</from>
-      <to>Insert / update New Watchlist</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -704,7 +689,7 @@
     <hop>
       <from>Set username not null</from>
       <to>Insert / update New User</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Old User</from>
@@ -814,6 +799,31 @@
     <hop>
       <from>Select email 2 2</from>
       <to>Merge WZ emails</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Update featured</from>
+      <to>Insert / update New Documentary</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert / update New Documentary</from>
+      <to>Insert / update Standalone</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until documentary finish for watchlist</from>
+      <to>Lookup documentary</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter null documentaries</from>
+      <to>Block this step until user finish</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until user finish</from>
+      <to>Insert / update New Watchlist</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1267,6 +1277,80 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </GUI>
   </step>
   <step>
+    <name>Feedburner WZ</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>C:\Users\Jonny\Desktop\Workspace\ZeitgeistMovieemailsubscribers.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure/>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding/>
+    <fields>
+      <field>
+        <name>Email</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Subscribed</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Status</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Filter null documentaries</name>
     <type>FilterRows</type>
     <description/>
@@ -1297,7 +1381,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1616</xloc>
-      <yloc>976</yloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1699,11 +1783,6 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
         <update>Y</update>
       </value>
       <value>
-        <name>video_id</name>
-        <rename>video_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>featured</name>
         <rename>featured</rename>
         <update>Y</update>
@@ -1729,11 +1808,6 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
         <update>Y</update>
       </value>
       <value>
-        <name>video_source_id</name>
-        <rename>video_source_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>category_id</name>
         <rename>new_category_id</rename>
         <update>Y</update>
@@ -1749,7 +1823,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>2336</xloc>
-      <yloc>320</yloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2056,7 +2130,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1616</xloc>
-      <yloc>1056</yloc>
+      <yloc>1152</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2152,7 +2226,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1616</xloc>
-      <yloc>896</yloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2368,6 +2442,42 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>624</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge WZ emails</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <keys>
+      <key>email</key>
+    </keys>
+    <values>
+      <value>email</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>Select email from feedburner wz</reference>
+    <compare>Select email 2 2</compare>
+    <compare>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2754,6 +2864,68 @@ FROM documentary
     </GUI>
   </step>
   <step>
+    <name>Select email 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>email</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select email 2 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>email</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Select email from feedburner TNS</name>
     <type>SelectValues</type>
     <description/>
@@ -2813,6 +2985,38 @@ FROM documentary
     </remotesteps>
     <GUI>
       <xloc>880</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select email from feedburner wz</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Email</name>
+        <rename>email</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3352,6 +3556,48 @@ if (username == null || username == "") {
     </GUI>
   </step>
   <step>
+    <name>Sort feedburner wz emails</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Email</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Unique rows</name>
     <type>Unique</type>
     <description/>
@@ -3439,8 +3685,8 @@ if (featured === "Y") {
     </GUI>
   </step>
   <step>
-    <name>Select email 2</name>
-    <type>SelectValues</type>
+    <name>Insert / update Standalone</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3449,12 +3695,34 @@ if (featured === "Y") {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>email</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>standalone</table>
+      <key>
+        <name>id</name>
+        <field>documentary_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>video_source_id</name>
+        <rename>video_source_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>video_id</name>
+        <rename>video_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>documentary_id</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -3464,14 +3732,14 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
-      <yloc>464</yloc>
+      <xloc>2336</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge WZ emails</name>
-    <type>MergeRows</type>
+    <name>Block this step until user finish</name>
+    <type>BlockUntilStepsFinish</type>
     <description/>
     <distribute>N</distribute>
     <custom_distribution/>
@@ -3480,17 +3748,12 @@ if (featured === "Y") {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <keys>
-      <key>email</key>
-    </keys>
-    <values>
-      <value>email</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>Select email from feedburner wz</reference>
-    <compare>Select email 2 2</compare>
-    <compare>
-    </compare>
+    <steps>
+      <step>
+        <name>Insert / update New User</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -3500,187 +3763,8 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Feedburner WZ</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>C:\Users\Jonny\Desktop\Workspace\ZeitgeistMovieemailsubscribers.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-      <field>
-        <name>Email</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Subscribed</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Status</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort feedburner wz emails</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>Email</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email from feedburner wz</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Email</name>
-        <rename>email</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email 2 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>email</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>464</yloc>
+      <xloc>1616</xloc>
+      <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
