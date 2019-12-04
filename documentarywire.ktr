@@ -708,11 +708,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique rows</from>
-      <to>Emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select email from feedburner dw</from>
       <to>Merge DW emails</to>
       <enabled>Y</enabled>
@@ -845,6 +840,21 @@
     <hop>
       <from>Standalone</from>
       <to>Update Documentary</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
+      <to>Set subscribed to true</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set subscribed to true</from>
+      <to>Set subscription key</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set subscription key</from>
+      <to>Insert / update emails</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -982,8 +992,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1440</xloc>
-      <yloc>816</yloc>
+      <xloc>1536</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1013,8 +1023,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>816</yloc>
+      <xloc>1824</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1077,75 +1087,6 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     <GUI>
       <xloc>1824</xloc>
       <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Emails</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>,</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding>windows-1252</encoding>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>C:/Users/Jonny/Desktop/Workspace/etl</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>,</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>email</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1292,8 +1233,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>704</yloc>
+      <xloc>400</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1401,8 +1342,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1440</xloc>
-      <yloc>992</yloc>
+      <xloc>1536</xloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1471,8 +1412,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>976</yloc>
+      <xloc>1824</xloc>
+      <yloc>896</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1584,8 +1525,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>1056</yloc>
+      <xloc>1824</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2155,8 +2096,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1440</xloc>
-      <yloc>1152</yloc>
+      <xloc>1536</xloc>
+      <yloc>1088</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2251,8 +2192,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1440</xloc>
-      <yloc>912</yloc>
+      <xloc>1536</xloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2395,8 +2336,8 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>896</yloc>
+      <xloc>1824</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2467,7 +2408,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>400</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2581,8 +2522,8 @@ FROM activity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1776</xloc>
-      <yloc>736</yloc>
+      <xloc>1824</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2763,8 +2704,8 @@ FROM likes
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1440</xloc>
-      <yloc>736</yloc>
+      <xloc>1536</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2915,7 +2856,7 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
+      <xloc>528</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2978,8 +2919,8 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>544</yloc>
+      <xloc>400</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3092,6 +3033,7 @@ FROM documentary
     <fields>
       <field>
         <name>email</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -3534,8 +3476,8 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>624</yloc>
+      <xloc>400</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3789,8 +3731,8 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1440</xloc>
-      <yloc>1072</yloc>
+      <xloc>1536</xloc>
+      <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3979,6 +3921,156 @@ FROM standalone
     </remotesteps>
     <GUI>
       <xloc>2096</xloc>
+      <yloc>800</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update emails</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>email</table>
+      <key>
+        <name>email</name>
+        <field>email</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>email</name>
+        <rename>email</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subscribed</name>
+        <rename>subscribed</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subscription_key</name>
+        <rename>subscriptionKey</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>createdAT</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set subscribed to true</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var subscribed = true;</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>subscribed</name>
+        <rename>subscribed</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>720</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set subscription key</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var subscriptionKey = new Date().getTime() + Math.random();</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>subscriptionKey</name>
+        <rename>subscriptionKey</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
       <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
