@@ -794,7 +794,7 @@
     </hop>
     <hop>
       <from>Insert / update New Documentary</from>
-      <to>Insert / update Standalone</to>
+      <to>Insert / update Movie</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -828,17 +828,12 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set documentary type</from>
-      <to>Insert / update New Documentary</to>
+      <from>Block this step until insert / update movie finishes</from>
+      <to>Movie</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Block this step until insert / update standalone finishes</from>
-      <to>Standalone</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Standalone</from>
+      <from>Movie</from>
       <to>Update Documentary</to>
       <enabled>Y</enabled>
     </hop>
@@ -860,6 +855,11 @@
     <hop>
       <from>Update Documentary</from>
       <to>Update Documentary Video Source</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set documentary type</from>
+      <to>Insert / update New Documentary</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1003,7 +1003,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Block this step until insert / update standalone finishes</name>
+    <name>Block this step until insert / update movie finishes</name>
     <type>BlockUntilStepsFinish</type>
     <description/>
     <distribute>N</distribute>
@@ -1015,7 +1015,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </partitioning>
     <steps>
       <step>
-        <name>Insert / update Standalone</name>
+        <name>Insert / update Movie</name>
         <CopyNr>0</CopyNr>
       </step>
     </steps>
@@ -1877,6 +1877,16 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
         <rename>type</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>comment_count</name>
+        <rename>comment_count</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>watchlist_count</name>
+        <rename>likeCount</rename>
+        <update>N</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -2200,7 +2210,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Insert / update Standalone</name>
+    <name>Insert / update Movie</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -2215,7 +2225,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>standalone</table>
+      <table>movie</table>
       <key>
         <name>id</name>
         <field>documentary_id</field>
@@ -3907,7 +3917,7 @@ if (username == null || username == "") {
     </GUI>
   </step>
   <step>
-    <name>Standalone</name>
+    <name>Movie</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -3923,7 +3933,7 @@ if (username == null || username == "") {
 , documentary_id
 , video_source_id
 , video_id
-FROM standalone
+FROM movie
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -4003,7 +4013,7 @@ FROM standalone
         <name2/>
       </key>
       <value>
-        <name>standalone_id</name>
+        <name>movie_id</name>
         <rename>id</rename>
         <update>Y</update>
       </value>
