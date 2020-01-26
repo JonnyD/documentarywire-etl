@@ -1928,17 +1928,17 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       <value>
         <name>comment_count</name>
         <rename>comment_count</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>watchlist_count</name>
         <rename>likeCount</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>year_from</name>
         <rename>year</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
     </lookup>
     <attributes/>
