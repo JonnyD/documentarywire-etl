@@ -1666,11 +1666,6 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
         <rename>id</rename>
         <update>Y</update>
       </value>
-      <value>
-        <name>year</name>
-        <rename>year</rename>
-        <update>Y</update>
-      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1938,6 +1933,11 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
       <value>
         <name>watchlist_count</name>
         <rename>likeCount</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>year_from</name>
+        <rename>year</rename>
         <update>N</update>
       </value>
     </lookup>
