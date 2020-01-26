@@ -3651,7 +3651,13 @@ discr = "facebook";</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-status = "disabled";</jsScript_script>
+
+if (video_source == 'youtube') {
+	status = 'enabled';
+} else {
+	status = "disabled";
+}
+</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
