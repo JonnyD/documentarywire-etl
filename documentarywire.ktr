@@ -1826,7 +1826,7 @@ roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
     <name>Insert / update New Documentary</name>
     <type>InsertUpdate</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -3321,7 +3321,7 @@ FROM documentary
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-type = "standalone";</jsScript_script>
+type = "movie";</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
