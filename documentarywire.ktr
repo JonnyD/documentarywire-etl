@@ -882,7 +882,11 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-roles = 'a:1:{i:0;s:9:"ROLE_USER";}';</jsScript_script>
+if (id == 4940) {
+	roles = 'a:2:{i:0;s:9:"ROLE_USER";i:1;s:10:"ROLE_ADMIN";}';
+} else {
+	roles = 'a:1:{i:0;s:9:"ROLE_USER";}';
+}</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
