@@ -568,11 +568,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Old Cateogry</from>
-      <to>Insert / update New Category</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select Video Sources from Old Documentary</from>
       <to>Set embed allowed</to>
       <enabled>Y</enabled>
@@ -640,11 +635,6 @@
     <hop>
       <from>Block this step until documentary finish</from>
       <to>Block this step until user finsih</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Block this step until user finsih</from>
-      <to>Insert / update New Comment</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -865,6 +855,26 @@
     <hop>
       <from>Rename like to watchlist</from>
       <to>Insert / update Activity</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Old Cateogry</from>
+      <to>Set category enabled</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set category enabled</from>
+      <to>Insert / update New Category</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until user finsih</from>
+      <to>Rename Published and Pending</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rename Published and Pending</from>
+      <to>Insert / update New Comment</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1733,6 +1743,11 @@ if (id == 4940) {
         <rename>count</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>status</name>
+        <rename>status</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1744,7 +1759,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>1248</xloc>
-      <yloc>240</yloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1827,7 +1842,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>976</xloc>
-      <yloc>928</yloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3027,6 +3042,54 @@ ORDER BY email</sql>
     </GUI>
   </step>
   <step>
+    <name>Rename like to watchlist</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (type == "like") {
+	type = "watchlist";
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>type</name>
+        <rename>type</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1824</xloc>
+      <yloc>976</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Select Video Sources from Old Documentary</name>
     <type>TableInput</type>
     <description/>
@@ -3308,6 +3371,52 @@ FROM documentary
     <GUI>
       <xloc>880</xloc>
       <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set category enabled</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var status = 'enabled';</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>status</name>
+        <rename>status</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4154,7 +4263,7 @@ if (featured === "Y") {
     </GUI>
   </step>
   <step>
-    <name>Rename like to watchlist</name>
+    <name>Rename Published and Pending</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -4172,15 +4281,17 @@ if (featured === "Y") {
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-if (type == "like") {
-	type = "watchlist";
+if (status == 1) {
+	status = "published";
+} else if (status == 2) {
+	status = "pending";
 }</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
-        <name>type</name>
-        <rename>type</rename>
+        <name>status</name>
+        <rename>status</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -4196,8 +4307,8 @@ if (type == "like") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>976</yloc>
+      <xloc>976</xloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
