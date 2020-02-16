@@ -673,111 +673,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Old User</from>
-      <to>Select email from old user</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email from old user</from>
-      <to>Merge rows (diff)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Old Comment</from>
-      <to>Select email from old comment</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email from old comment</from>
-      <to>Merge rows (diff)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email from feedburner dw</from>
-      <to>Merge DW emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Feedburner DW</from>
-      <to>Sort feedburner dw emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort feedburner dw emails</from>
-      <to>Select email from feedburner dw</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge rows (diff)</from>
-      <to>Select email</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email</from>
-      <to>Merge DW emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter null emails</from>
-      <to>Unique rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort feedburner TNS emails</from>
-      <to>Select email from feedburner TNS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Feedburner TNS</from>
-      <to>Sort feedburner TNS emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email from feedburner TNS</from>
-      <to>Merge TNS emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge DW emails</from>
-      <to>Select email 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email 2</from>
-      <to>Merge TNS emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge WZ emails</from>
-      <to>Filter null emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Feedburner WZ</from>
-      <to>Sort feedburner wz emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort feedburner wz emails</from>
-      <to>Select email from feedburner wz</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email from feedburner wz</from>
-      <to>Merge WZ emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge TNS emails</from>
-      <to>Select email 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select email 2 2</from>
-      <to>Merge WZ emails</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Insert / update New Documentary</from>
       <to>Insert / update Movie</to>
       <enabled>Y</enabled>
@@ -821,21 +716,6 @@
       <from>Movie</from>
       <to>Update Documentary</to>
       <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows</from>
-      <to>Set subscribed to true</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Set subscribed to true</from>
-      <to>Set subscription key</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Set subscription key</from>
-      <to>Insert / update emails</to>
-      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Update Documentary</from>
@@ -923,8 +803,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>240</yloc>
+      <xloc>400</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -954,8 +834,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>480</yloc>
+      <xloc>1184</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -985,8 +865,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
-      <yloc>768</yloc>
+      <xloc>144</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1016,8 +896,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>752</yloc>
+      <xloc>896</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1047,8 +927,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>560</yloc>
+      <xloc>1456</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1078,8 +958,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>1008</yloc>
+      <xloc>896</xloc>
+      <yloc>944</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1109,8 +989,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>624</yloc>
+      <xloc>608</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1140,8 +1020,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>736</yloc>
+      <xloc>1184</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1171,8 +1051,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
-      <yloc>848</yloc>
+      <xloc>144</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1202,230 +1082,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Feedburner DW</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>C:\Users\Jonny\Desktop\Workspace\DocumentaryWireemailsubscribers.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-      <field>
-        <name>Email</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Subscribed</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Status</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Feedburner TNS</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>C:\Users\Jonny\Desktop\Workspace\tnsradioemailsubscribers.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-      <field>
-        <name>Email</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Subscribed</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Status</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Feedburner WZ</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>C:\Users\Jonny\Desktop\Workspace\ZeitgeistMovieemailsubscribers.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-      <field>
-        <name>Email</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Subscribed</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Status</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>208</yloc>
+      <xloc>1184</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1459,43 +1117,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>928</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter null emails</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to/>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>email</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>560</yloc>
+      <xloc>896</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1529,8 +1152,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>896</yloc>
+      <xloc>1184</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1564,8 +1187,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>464</yloc>
+      <xloc>608</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1642,8 +1265,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>1056</yloc>
+      <xloc>1184</xloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1695,8 +1318,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>496</yloc>
+      <xloc>1456</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1758,8 +1381,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>320</yloc>
+      <xloc>608</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1841,8 +1464,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
-      <yloc>992</yloc>
+      <xloc>144</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1974,8 +1597,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>416</yloc>
+      <xloc>1456</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2037,8 +1660,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>704</yloc>
+      <xloc>608</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2165,8 +1788,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>464</yloc>
+      <xloc>400</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2223,8 +1846,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>560</yloc>
+      <xloc>896</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2281,61 +1904,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>1088</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update emails</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>documentarywire</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>email</table>
-      <key>
-        <name>email</name>
-        <field>email</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>email</name>
-        <rename>email</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>subscribed</name>
-        <rename>subscribed</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>subscription_key</name>
-        <rename>subscriptionKey</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>880</yloc>
+      <xloc>896</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2382,8 +1952,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>400</yloc>
+      <xloc>1184</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2430,8 +2000,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>848</yloc>
+      <xloc>896</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2478,8 +2048,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>160</yloc>
+      <xloc>1456</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2526,8 +2096,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>560</yloc>
+      <xloc>1184</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2574,152 +2144,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>816</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge DW emails</name>
-    <type>MergeRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <keys>
-      <key>email</key>
-    </keys>
-    <values>
-      <value>email</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>Select email from feedburner dw</reference>
-    <compare>Select email</compare>
-    <compare>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge TNS emails</name>
-    <type>MergeRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <keys>
-      <key>email</key>
-    </keys>
-    <values>
-      <value>email</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>Select email from feedburner TNS</reference>
-    <compare>Select email 2</compare>
-    <compare>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge WZ emails</name>
-    <type>MergeRows</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <keys>
-      <key>email</key>
-    </keys>
-    <values>
-      <value>email</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>Select email from feedburner wz</reference>
-    <compare>Select email 2 2</compare>
-    <compare>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge rows (diff)</name>
-    <type>MergeRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <keys>
-      <key>email</key>
-    </keys>
-    <values>
-      <value>email</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>Select email from old user</reference>
-    <compare>Select email from old comment</compare>
-    <compare>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>464</yloc>
+      <xloc>1184</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2756,8 +2182,8 @@ FROM movie
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>640</yloc>
+      <xloc>1456</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2798,8 +2224,8 @@ FROM activity
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>656</yloc>
+      <xloc>1184</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2836,8 +2262,8 @@ FROM category
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>160</yloc>
+      <xloc>608</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2883,8 +2309,8 @@ ORDER BY email</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
-      <yloc>688</yloc>
+      <xloc>144</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2942,8 +2368,8 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>160</yloc>
+      <xloc>1184</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2980,8 +2406,8 @@ FROM likes
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>672</yloc>
+      <xloc>896</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3036,8 +2462,8 @@ ORDER BY email</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>160</yloc>
+      <xloc>400</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3084,8 +2510,8 @@ if (type == "like") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>976</yloc>
+      <xloc>1184</xloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3118,259 +2544,8 @@ FROM documentary
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>email</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>email</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>528</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email 2 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>email</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email from feedburner TNS</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Email</name>
-        <rename>email</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email from feedburner dw</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Email</name>
-        <rename>email</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email from feedburner wz</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Email</name>
-        <rename>email</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email from old comment</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>email</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select email from old user</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>email</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>304</yloc>
+      <xloc>896</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3415,8 +2590,8 @@ var status = 'enabled';</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>240</yloc>
+      <xloc>608</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3461,8 +2636,8 @@ type = "movie";</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>336</yloc>
+      <xloc>1456</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3507,8 +2682,8 @@ embed_allowed = "no";</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>240</yloc>
+      <xloc>896</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3553,8 +2728,8 @@ embed_code = null;</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>320</yloc>
+      <xloc>896</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3603,8 +2778,8 @@ if (activated == null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>320</yloc>
+      <xloc>400</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3651,8 +2826,8 @@ if (video_source === null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>480</yloc>
+      <xloc>896</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3699,8 +2874,8 @@ if (video_source == null) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1824</xloc>
-      <yloc>320</yloc>
+      <xloc>1184</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3745,8 +2920,8 @@ discr = "facebook";</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>544</yloc>
+      <xloc>608</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3797,100 +2972,8 @@ if (video_source == 'youtube') {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set subscribed to true</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var subscribed = true;</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>subscribed</name>
-        <rename>subscribed</rename>
-        <type>Boolean</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>720</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set subscription key</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var subscriptionKey = new Date().getTime() + Math.random();</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>subscriptionKey</name>
-        <rename>subscriptionKey</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>800</yloc>
+      <xloc>896</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3947,169 +3030,8 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort feedburner TNS emails</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>Email</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
       <xloc>400</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort feedburner dw emails</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>Email</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort feedburner wz emails</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>Email</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>email</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>640</yloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4151,8 +3073,8 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>720</yloc>
+      <xloc>1456</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4205,8 +3127,8 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>800</yloc>
+      <xloc>1456</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4257,8 +3179,8 @@ if (featured === "Y") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2096</xloc>
-      <yloc>240</yloc>
+      <xloc>1456</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4307,8 +3229,8 @@ if (status == 1) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
-      <yloc>928</yloc>
+      <xloc>144</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
