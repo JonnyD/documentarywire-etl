@@ -668,11 +668,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Insert / update New Documentary</from>
-      <to>Insert / update Movie</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Block this step until documentary finish for watchlist</from>
       <to>Lookup documentary</to>
       <enabled>Y</enabled>
@@ -699,7 +694,7 @@
     </hop>
     <hop>
       <from>Update featured</from>
-      <to>Set documentary type</to>
+      <to>Set missing values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -718,7 +713,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set documentary type</from>
+      <from>Set missing values</from>
       <to>Insert / update New Documentary</to>
       <enabled>Y</enabled>
     </hop>
@@ -760,6 +755,16 @@
     <hop>
       <from>Set user huhahoo salt and password</from>
       <to>Insert / update New User</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert / update New Documentary</from>
+      <to>Block this step until insert documentary finish</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until insert documentary finish</from>
+      <to>Insert / update Movie</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -933,7 +938,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>1456</xloc>
-      <yloc>496</yloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1319,7 +1324,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>1456</xloc>
-      <yloc>432</yloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1587,6 +1592,16 @@ if (id == 4940) {
         <rename>year</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>today_views</name>
+        <rename>todays_views</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>views_date</name>
+        <rename>todays_date</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1598,7 +1613,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>1456</xloc>
-      <yloc>352</yloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2183,7 +2198,7 @@ FROM movie
     </remotesteps>
     <GUI>
       <xloc>1456</xloc>
-      <yloc>576</yloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2646,7 +2661,7 @@ var status = 'enabled';</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Set documentary type</name>
+    <name>Set missing values</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -2664,13 +2679,31 @@ var status = 'enabled';</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-type = "movie";</jsScript_script>
+type = "movie";
+todays_views = 0;
+todays_date = null;</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
         <name>type</name>
         <rename>type</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>todays_views</name>
+        <rename>todays_views</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>todays_date</name>
+        <rename>todays_date</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -2687,7 +2720,7 @@ type = "movie";</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1456</xloc>
-      <yloc>272</yloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3124,7 +3157,7 @@ if (username == null || username == "") {
     </remotesteps>
     <GUI>
       <xloc>1456</xloc>
-      <yloc>656</yloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3178,7 +3211,7 @@ if (username == null || username == "") {
     </remotesteps>
     <GUI>
       <xloc>1456</xloc>
-      <yloc>736</yloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3288,6 +3321,37 @@ if (username == 'huhahoo') {
     <GUI>
       <xloc>400</xloc>
       <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until insert documentary finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update New Documentary</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
