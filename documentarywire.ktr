@@ -668,11 +668,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set username not null</from>
-      <to>Insert / update New User</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Insert / update New Documentary</from>
       <to>Insert / update Movie</to>
       <enabled>Y</enabled>
@@ -755,6 +750,16 @@
     <hop>
       <from>Rename Published and Pending</from>
       <to>Insert / update New Comment</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set username not null</from>
+      <to>Set user huhahoo salt and password</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set user huhahoo salt and password</from>
+      <to>Insert / update New User</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -990,7 +995,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>560</yloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1188,7 +1193,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>400</yloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1656,7 +1661,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>640</yloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1784,7 +1789,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>400</yloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2966,7 +2971,7 @@ discr = "facebook";</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>480</yloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3226,6 +3231,63 @@ if (featured === "Y") {
     <GUI>
       <xloc>1456</xloc>
       <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set user huhahoo salt and password</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+if (username == 'huhahoo') {
+	salt = 'BFTG2KRP7LiwLUk98gABjquYlj6i.t/WwIyXNB3RqHg';
+	password = 'cFuYxAXZ+4mH8KW8xZiQyc2RK3cuqIwSDBIvUKtd0X1DLCeVCTsBi7dGOZMVdgjCvgGh+qOO1pP9nVmnwVnhsw==';
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>salt</name>
+        <rename>salt</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>password</name>
+        <rename>password</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
