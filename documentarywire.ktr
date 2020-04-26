@@ -2807,10 +2807,10 @@ embed_code = null;</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-if (activated == null) {
-	activated = 0;
-} else {
+if (activated != null || lastActive != null || facebook_id != null) {
 	activated = 1;
+} else {
+	activated = 0;
 }</jsScript_script>
       </jsScript>
     </jsScripts>
