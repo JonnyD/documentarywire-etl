@@ -937,8 +937,8 @@ if (id == 4940) {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
-      <yloc>576</yloc>
+      <xloc>1440</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1161,8 +1161,8 @@ FROM movie
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
-      <yloc>656</yloc>
+      <xloc>1440</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3258,8 +3258,8 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
-      <yloc>736</yloc>
+      <xloc>1440</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3312,8 +3312,8 @@ if (username == null || username == "") {
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1456</xloc>
-      <yloc>816</yloc>
+      <xloc>1440</xloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3337,11 +3337,11 @@ if (username == null || username == "") {
         <jsScript_script>//Script here
 
 if (featured === "Y") {
-	featured = 1;
+	featured = "yes";
 } else if (featured === "N") {
-	featured = 0;
+	featured = "no";
 } else {
-	featured = 0;
+	featured = "no";
 }</jsScript_script>
       </jsScript>
     </jsScripts>
@@ -3349,7 +3349,7 @@ if (featured === "Y") {
       <field>
         <name>featured</name>
         <rename>featured</rename>
-        <type>Integer</type>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>Y</replace>
