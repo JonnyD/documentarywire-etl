@@ -598,11 +598,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set subscription key 2 2 2</from>
-      <to>Insert / update emails 2 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select email from feedburner TNS</from>
       <to>Set subscribed to true 2 2 4</to>
       <enabled>Y</enabled>
@@ -727,7 +722,136 @@
       <to>Set subscribed to true 2 2 3</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Set subscription key 2 2 2</from>
+      <to>Insert / update emails 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Block this step until steps finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update emails 2 2 2</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until steps finish 2</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update emails 2 2 3</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1040</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until steps finish 3</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update emails 2 2 4</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Block this step until steps finish 4</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <steps>
+      <step>
+        <name>Insert / update emails 2 2</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Feedburner DW</name>
     <type>CsvInput</type>
@@ -767,8 +891,8 @@
       </field>
       <field>
         <name>Subscribed</name>
-        <type>String</type>
-        <format/>
+        <type>Date</type>
+        <format>MM/dd/yyyy HH:mm</format>
         <currency/>
         <decimal/>
         <group/>
@@ -841,8 +965,8 @@
       </field>
       <field>
         <name>Subscribed</name>
-        <type>String</type>
-        <format/>
+        <type>Date</type>
+        <format>MM/dd/yyyy HH:mm</format>
         <currency/>
         <decimal/>
         <group/>
@@ -915,8 +1039,8 @@
       </field>
       <field>
         <name>Subscribed</name>
-        <type>String</type>
-        <format/>
+        <type>Date</type>
+        <format>MM/dd/yyyy HH:mm</format>
         <currency/>
         <decimal/>
         <group/>
@@ -1031,7 +1155,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Trim email</send_true_to>
+    <send_true_to>Trim Email</send_true_to>
     <send_false_to/>
     <compare>
       <condition>
@@ -1098,6 +1222,16 @@
         <rename>source</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>created_at</name>
+        <rename>created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>on_mailing_list</name>
+        <rename>onMailingList</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1156,6 +1290,16 @@
         <rename>source</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>created_at</name>
+        <rename>registered</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>on_mailing_list</name>
+        <rename>onMailingList</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1168,64 +1312,6 @@
     <GUI>
       <xloc>112</xloc>
       <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update emails 2 2 2</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>documentarywire</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>email</table>
-      <key>
-        <name>email</name>
-        <field>email</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>email</name>
-        <rename>email</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>subscribed</name>
-        <rename>subscribed</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>subscription_key</name>
-        <rename>subscriptionKey</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>source</name>
-        <rename>source</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1270,6 +1356,16 @@
       <value>
         <name>source</name>
         <rename>source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>createdAt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>on_mailing_list</name>
+        <rename>onMailingList</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1328,6 +1424,16 @@
       <value>
         <name>source</name>
         <rename>source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>createdAt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>on_mailing_list</name>
+        <rename>onMailingList</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1464,6 +1570,10 @@ ORDER BY email</sql>
         <name>Email</name>
         <rename>email</rename>
       </field>
+      <field>
+        <name>Subscribed</name>
+        <rename>createdAt</rename>
+      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
@@ -1496,6 +1606,10 @@ ORDER BY email</sql>
         <name>Email</name>
         <rename>email</rename>
       </field>
+      <field>
+        <name>Subscribed</name>
+        <rename>createdAt</rename>
+      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
@@ -1526,6 +1640,11 @@ ORDER BY email</sql>
     <fields>
       <field>
         <name>email</name>
+        <rename/>
+      </field>
+      <field>
+        <name>created</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1557,6 +1676,11 @@ ORDER BY email</sql>
     <fields>
       <field>
         <name>email</name>
+        <rename/>
+      </field>
+      <field>
+        <name>registered</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1593,6 +1717,10 @@ ORDER BY email</sql>
       <field>
         <name>Status</name>
         <rename>status</rename>
+      </field>
+      <field>
+        <name>Subscribed</name>
+        <rename>createdAt</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1865,14 +1993,23 @@ var source = 'wz-feedburner';</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var subscribed = true;</jsScript_script>
+var subscribed = 'yes';
+var onMailingList = "no";</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
         <name>subscribed</name>
         <rename>subscribed</rename>
-        <type>Boolean</type>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>onMailingList</name>
+        <rename>onMailingList</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
@@ -1911,14 +2048,23 @@ var subscribed = true;</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var subscribed = true;</jsScript_script>
+var subscribed = 'yes';
+var onMailingList = "no";</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
         <name>subscribed</name>
         <rename>subscribed</rename>
-        <type>Boolean</type>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>onMailingList</name>
+        <rename>onMailingList</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
@@ -1957,14 +2103,23 @@ var subscribed = true;</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var subscribed = true;</jsScript_script>
+var subscribed = 'yes';
+var onMailingList = "no";</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
         <name>subscribed</name>
         <rename>subscribed</rename>
-        <type>Boolean</type>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>onMailingList</name>
+        <rename>onMailingList</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
@@ -2003,14 +2158,23 @@ var subscribed = true;</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var subscribed = true;</jsScript_script>
+var subscribed = 'yes';
+var onMailingList = "no";</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
         <name>subscribed</name>
         <rename>subscribed</rename>
-        <type>Boolean</type>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>onMailingList</name>
+        <rename>onMailingList</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
@@ -2049,14 +2213,23 @@ var subscribed = true;</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var subscribed = true;</jsScript_script>
+var subscribed = 'yes';
+var onMailingList = "no";</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
         <name>subscribed</name>
         <rename>subscribed</rename>
-        <type>Boolean</type>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>onMailingList</name>
+        <rename>onMailingList</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
@@ -2433,130 +2606,6 @@ var subscriptionKey = new Date().getTime() + Math.random();</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Block this step until steps finish</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <steps>
-      <step>
-        <name>Insert / update emails 2 2 2</name>
-        <CopyNr>0</CopyNr>
-      </step>
-    </steps>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Block this step until steps finish 2</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <steps>
-      <step>
-        <name>Insert / update emails 2 2 3</name>
-        <CopyNr>0</CopyNr>
-      </step>
-    </steps>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1040</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Block this step until steps finish 3</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <steps>
-      <step>
-        <name>Insert / update emails 2 2 4</name>
-        <CopyNr>0</CopyNr>
-      </step>
-    </steps>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>304</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Block this step until steps finish 4</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <steps>
-      <step>
-        <name>Insert / update emails 2 2</name>
-        <CopyNr>0</CopyNr>
-      </step>
-    </steps>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Trim Email</name>
     <type>StringOperations</type>
     <description/>
@@ -2592,6 +2641,74 @@ var subscriptionKey = new Date().getTime() + Math.random();</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1392</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update emails 2 2 2</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>email</table>
+      <key>
+        <name>email</name>
+        <field>email</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>email</name>
+        <rename>email</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subscribed</name>
+        <rename>subscribed</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subscription_key</name>
+        <rename>subscriptionKey</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>source</name>
+        <rename>source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>created_at</name>
+        <rename>createdAt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>on_mailing_list</name>
+        <rename>onMailingList</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
