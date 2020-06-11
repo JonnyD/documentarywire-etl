@@ -2860,7 +2860,11 @@ if (activated != null || lastActive != null || facebook_id != null) {
 type = "movie";
 todays_views = 0;
 todays_date = null;
-is_parent = "yes";</jsScript_script>
+is_parent = "yes";
+
+if (status == 'publish') {
+	status = 'published';
+}</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
@@ -2895,6 +2899,14 @@ is_parent = "yes";</jsScript_script>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>
+      <field>
+        <name>status</name>
+        <rename>status</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
       </field>
     </fields>
     <attributes/>
