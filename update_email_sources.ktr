@@ -558,11 +558,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Old User</from>
-      <to>Select email from old user</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select email from old user</from>
       <to>Set subscribed to true 2 2</to>
       <enabled>Y</enabled>
@@ -725,6 +720,16 @@
     <hop>
       <from>Set subscription key 2 2 2</from>
       <to>Insert / update emails 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Old User</from>
+      <to>Filter rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 4</from>
+      <to>Select email from old user</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1693,7 +1698,7 @@ ORDER BY email</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>208</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2710,6 +2715,41 @@ var subscriptionKey = new Date().getTime() + Math.random();</jsScript_script>
     <GUI>
       <xloc>240</xloc>
       <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 4</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>activated</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
