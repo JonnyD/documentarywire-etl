@@ -663,11 +663,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set enabled</from>
-      <to>Set username not null</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Block this step until documentary finish for watchlist</from>
       <to>Lookup documentary</to>
       <enabled>Y</enabled>
@@ -675,11 +670,6 @@
     <hop>
       <from>Filter null documentaries</from>
       <to>Block this step until user finish</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Block this step until user finish</from>
-      <to>Insert / update New Watchlist</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -743,11 +733,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Rename Published and Pending</from>
-      <to>Insert / update New Comment</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Set username not null</from>
       <to>Set user huhahoo salt and password</to>
       <enabled>Y</enabled>
@@ -765,6 +750,46 @@
     <hop>
       <from>Block this step until insert documentary finish</from>
       <to>Insert / update Movie</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set enabled</from>
+      <to>Filter activated</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter activated</from>
+      <to>Set username not null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Block this step until user finish</from>
+      <to>Lookup user 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup user 2</from>
+      <to>Filter null users 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter null users 2</from>
+      <to>Insert / update New Watchlist</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Rename Published and Pending</from>
+      <to>Lookup user 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup user 2 2</from>
+      <to>Filter null users 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter null users 2 2</from>
+      <to>Insert / update New Comment</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1031,7 +1056,7 @@ if (id == 4940) {
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>656</yloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1267,7 +1292,7 @@ FROM movie
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>496</yloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1539,7 +1564,7 @@ FROM movie
     </remotesteps>
     <GUI>
       <xloc>144</xloc>
-      <yloc>400</yloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1739,6 +1764,11 @@ FROM movie
         <rename>discr</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>created_at</name>
+        <rename>registered</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1750,7 +1780,7 @@ FROM movie
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>736</yloc>
+      <yloc>832</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1804,7 +1834,7 @@ FROM movie
       </value>
       <value>
         <name>enabled</name>
-        <rename>activated</rename>
+        <rename>enabled</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1878,7 +1908,7 @@ FROM movie
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>496</yloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1994,7 +2024,7 @@ FROM movie
     </remotesteps>
     <GUI>
       <xloc>896</xloc>
-      <yloc>1024</yloc>
+      <yloc>1168</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2808,20 +2838,20 @@ embed_code = null;</jsScript_script>
         <jsScript_script>//Script here
 
 if (activated != null || lastActive != null || facebook_id != null) {
-	activated = 1;
+	enabled = 1;
 } else {
-	activated = 0;
+	enabled = 0;
 }</jsScript_script>
       </jsScript>
     </jsScripts>
     <fields>
       <field>
-        <name>activated</name>
-        <rename>activated</rename>
+        <name>enabled</name>
+        <rename>enabled</rename>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
-        <replace>Y</replace>
+        <replace>N</replace>
       </field>
     </fields>
     <attributes/>
@@ -3061,7 +3091,7 @@ discr = "facebook";</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>576</yloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3170,7 +3200,7 @@ if (username == 'huhahoo') {
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>400</yloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3228,7 +3258,7 @@ if (username == null || username == "") {
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>320</yloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3378,6 +3408,216 @@ if (featured === "Y") {
     <GUI>
       <xloc>1456</xloc>
       <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter activated</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>enabled</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup user 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>user</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>user_id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>existing_user_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>896</xloc>
+      <yloc>1024</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter null users 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>existing_user_id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue>documentary_id</rightvalue>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>896</xloc>
+      <yloc>1104</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup user 2 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>documentarywire</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>user</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>user_id</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>existing_user_id</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter null users 2 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to/>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>existing_user_id</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue>documentary_id</rightvalue>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
