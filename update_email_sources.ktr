@@ -491,69 +491,14 @@
       </attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>docuwire_docuwire2</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>docuwire_docuwire2</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <order>
     <hop>
-      <from>Old Comment</from>
-      <to>Select email from old comment</to>
+      <from>Comment</from>
+      <to>Select email from comment</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select email from old comment</from>
+      <from>Select email from comment</from>
       <to>Set subscribed to true 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -723,12 +668,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Old User</from>
-      <to>Filter rows 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 4</from>
+      <from>User</from>
       <to>Select email from old user</to>
       <enabled>Y</enabled>
     </hop>
@@ -1229,7 +1169,7 @@
       </value>
       <value>
         <name>created_at</name>
-        <rename>created</rename>
+        <rename>created_at</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1297,7 +1237,7 @@
       </value>
       <value>
         <name>created_at</name>
-        <rename>registered</rename>
+        <rename>activated_at</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1457,7 +1397,7 @@
     </GUI>
   </step>
   <step>
-    <name>Old Comment</name>
+    <name>Comment</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -1467,23 +1407,19 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>docuwire_docuwire2</connection>
+    <connection>documentarywire</connection>
     <sql>SELECT
   id
 , user_id
 , documentary_id
-, created
-, comment
+, comment_text
 , status
-, parent_id
 , author
 , email
-, disqusParentId
-, disqusId
-, old_comment_id
-, points
+, created_at
+, updated_at
 FROM comment
-ORDER BY email</sql>
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1504,7 +1440,7 @@ ORDER BY email</sql>
     </GUI>
   </step>
   <step>
-    <name>Old User</name>
+    <name>User</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -1514,32 +1450,28 @@ ORDER BY email</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>docuwire_docuwire2</connection>
+    <connection>documentarywire</connection>
     <sql>SELECT
   id
 , username
 , username_canonical
-, password
-, reset_key
-, reset_request_time
-, last_reset_time
 , email
 , email_canonical
-, registered
-, lastActive
-, displayName
-, avatar
-, status
-, facebook_id
-, facebook_access_token
-, facebook_avatar_full
-, facebook_avatar_thumb
-, facebookAvatar2
+, enabled
 , salt
-, activated
-, activation_key
+, password
+, last_login
+, confirmation_token
+, password_requested_at
+, roles
+, name
+, avatar
+, reset_key
+, activated_at
+, created_at
+, updated_at
 FROM user
-ORDER BY email</sql>
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1632,7 +1564,7 @@ ORDER BY email</sql>
     </GUI>
   </step>
   <step>
-    <name>Select email from old comment</name>
+    <name>Select email from comment</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1648,7 +1580,7 @@ ORDER BY email</sql>
         <rename/>
       </field>
       <field>
-        <name>created</name>
+        <name>created_at</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -1684,7 +1616,7 @@ ORDER BY email</sql>
         <rename/>
       </field>
       <field>
-        <name>registered</name>
+        <name>activated_at</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -2715,41 +2647,6 @@ var subscriptionKey = new Date().getTime() + Math.random();</jsScript_script>
     <GUI>
       <xloc>240</xloc>
       <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 4</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to/>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>activated</leftvalue>
-        <function>IS NOT NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
